@@ -1,7 +1,7 @@
 #root {
   width: 100vw; /* Sử dụng toàn bộ chiều rộng của màn hình */
   overflow-x: hidden; /* Ngăn cuộn ngang */
-  background-color: #FFF5EE;
+  background-color: white;
 }
 /* navbar */
 .fixed-top {

@@ -185,16 +185,24 @@ const HoverButtonIcon = ({ children }) => {
   )
 }
 
-const Slider = () => {
+const getNavbarHeight = () => {
   const navbarRef = useRef(null);
-  const [navbarHeight, setNavbarHeight] = useState()
+  const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
+    // Nếu navbarRef tồn tại
     if (navbarRef.current) {
-      const height = navbarRef.current.clientHeight;
-      setNavbarHeight(height)
+      // Lấy chiều cao của navbar và lưu vào state
+      const height = navbarRef.current.offsetHeight;
+      setNavbarHeight(height);
     }
-  }, []);
+  }, [navbarRef]); // Sử dụng dependency array để tránh việc gọi useEffect không cần thiết
+
+  return { navbarRef, navbarHeight };
+}
+
+const Slider = ({ navbarHeight }) => {
+
   return (
     <div style={{ display: 'block', width: '100%', marginTop: navbarHeight }}>
       <Carousel>
@@ -225,4 +233,4 @@ const Slider = () => {
   )
 }
 
-export { CardProduct, HoverButton, HoverButtonFilter, ButtonStyleMenu, HoverButtonIcon, Slider }
+export { CardProduct, HoverButton, HoverButtonFilter, ButtonStyleMenu, HoverButtonIcon, Slider, getNavbarHeight }

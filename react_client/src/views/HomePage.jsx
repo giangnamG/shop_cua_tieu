@@ -4,16 +4,19 @@ import OutStandingProduct from '../components/user/OutStandingProduct'
 import { Slider } from '../components/user/Components'
 import { Container } from 'react-bootstrap'
 import NavbarComponent from '../components/user/NavbarComponent'
+import { getNavbarHeight } from "../components/user/Components";
 
 export default function HomePage() {
+  const { navbarRef, navbarHeight } = getNavbarHeight();
+
   const homeStyle = {
     paddingTop: 20,
     fontFamily: config.styles.fontFamily
   }
   return (
     <>
-      <NavbarComponent />
-      <Slider />
+      <NavbarComponent navbarRef={navbarRef} />
+      <Slider navbarHeight={navbarHeight} />
       <Container>
         <div style={homeStyle}>
           <div className='trend'>
