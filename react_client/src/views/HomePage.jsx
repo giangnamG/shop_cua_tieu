@@ -1,8 +1,9 @@
 import config from '../config'
 import AllProductPage from '../components/user/AllProductPage'
 import OutStandingProduct from '../components/user/OutStandingProduct'
-// import { Slider } from '../components/user/Components'
+import { Slider } from '../components/user/Components'
 import { Container } from 'react-bootstrap'
+import NavbarComponent from '../components/user/NavbarComponent'
 
 export default function HomePage() {
   const homeStyle = {
@@ -11,7 +12,8 @@ export default function HomePage() {
   }
   return (
     <>
-      {/* <Slider /> */}
+      <NavbarComponent />
+      <Slider />
       <Container>
         <div style={homeStyle}>
           <div className='trend'>
