@@ -1,0 +1,58 @@
+#root {
+  width: 100vw; /* Sử dụng toàn bộ chiều rộng của màn hình */
+  overflow-x: hidden; /* Ngăn cuộn ngang */
+  background-color: #FFF5EE;
+}
+/* navbar */
+.fixed-top {
+  position: fixed;
+  width: 100%;
+  z-index: 1030; /* Đảm bảo navbar nằm trên slider */
+  top: 0;
+  left: 0;
+}
+
+/*  */
+.button-row {
+  display: flex;          /* Sử dụng flexbox để xếp hàng ngang */
+  justify-content: space-around; /* Hoặc space-between, tùy thuộc vào yêu cầu căn chỉnh */
+  flex-wrap: nowrap;      /* Đảm bảo không có nút nào xuống hàng */
+}
+
+.flex-button {
+  flex: 1;                /* Đặt các nút có kích thước bằng nhau */
+  text-align: center;     /* Căn giữa nội dung nút */
+  /* padding-right: 5px; */
+}
+/* Định vị navbar cố định ở trên */
+/* Định vị navbar cố định ở trên */
+
+/* scroll */
+.scroll-container {
+  max-width: max-content;
+  max-height: 100vh; /* Thiết lập chiều cao tối đa của scroll */
+  overflow-y: auto; /* Cho phép scroll dọc */
+  overflow-x: hidden;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px; /* Chiều rộng của thanh scroll */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của thanh scroll */
+  border-radius: 5px
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DB7093
+  ; /* Màu của thanh kéo */
+  border-radius: 4px; /* Độ cong của viền */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #C71585; /* Màu của thanh kéo khi di chuột qua */
+}
