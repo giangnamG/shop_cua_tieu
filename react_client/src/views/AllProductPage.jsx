@@ -40,7 +40,7 @@ export default function AllProductPage() {
     border: 0,
     marginTop: 15,
     transform: 'translateY(-50%)',
-    backgroundColor: config.styles.backgroundColor,
+    backgroundColor: 'whitesmoke',
   }
   return (
     <>

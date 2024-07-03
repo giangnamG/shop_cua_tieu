@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { Button, Row, Col, Nav, Offcanvas } from 'react-bootstrap';
+import { Button, Row, Col, Nav, Offcanvas, Image } from 'react-bootstrap';
 import config from '../../config';
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../../redux/OrderCounter';
 
+const styleCenter = {
+  justifyItems: 'center',
+  justifyContent: 'center',
+  alignContent: 'center',
+  alignItems: 'center',
+  display: 'flex',
+}
 export default function OrderLayoutComponent() {
   const [show, setShow] = useState(false);
 
@@ -38,40 +45,51 @@ export default function OrderLayoutComponent() {
             </div>
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className="scroll-container" style={{
-          display: 'flex',
-          justifyItems: 'center',
-          justifyContent: 'center',
-          alignContent: 'center',
-        }}>
+        <Offcanvas.Body className="scroll-container" style={styleCenter}>
           <div style={{ width: '100rem', height: 'auto' }}>
-            <Row>
-              <Col xs={3} sm={3} md={2} lg={2} xl={2}>
-                <Button
-                  aria-label="Increment value"
-                  onClick={() => dispatch(increment())}
-                >+
-                </Button>
-                <span>{count}</span>
-                <Button
-                  aria-label="Decrement value"
-                  onClick={() => dispatch(decrement())}
-                > -
-                </Button>
+            <Row style={{ marginTop: 10, marginBottom: 10 }}>
+              <Col xs={2} sm={2} md={2} lg={2} xl={1}>
+                <Row style={styleCenter}>
+                  <Button
+                    aria-label="Increment value"
+                    onClick={() => dispatch(increment())}
+                    size="sm"
+                    variant="outline-success"
+                    style={{ width: 30 }}
+                  >+
+                  </Button>
+                </Row>
+                <Row style={styleCenter}>
+                  {count}
+                </Row>
+                <Row style={styleCenter}>
+                  <Button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(decrement())}
+                    size="sm"
+                    variant="outline-warning"
+                    style={{ width: 30 }}
+                  > -
+                  </Button>
+                </Row>
               </Col>
-              <Col xs={3} sm={3} md={2} lg={2} xl={2}>
-                Avatar
+              <Col xs={3} sm={3} md={2} lg={2} xl={3}>
+                <Image src="/assets/avatar/avatar.jpg" style={{ objectFit: 'cover', width: 80, height: 80 }} fluid roundedCircle ></Image>
               </Col>
               <Col xs={5} sm={5} md={6} lg={6} xl={6}>
-                Description
+                <Row>Tên Sản Phẩm</Row>
+                <Row>Đơn gía x Số lượng</Row>
+                <Row>Tổng tiền</Row>
               </Col>
-              <Col xs={1} sm={1} md={2} lg={2} xl={2}>
-                Action
+              <Col xs={2} sm={2} md={2} lg={2} xl={2} style={styleCenter}>
+                <Button variant="outline-danger" size="sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+                  </svg>
+                </Button>
               </Col>
             </Row>
-
           </div>
-
         </Offcanvas.Body>
       </Offcanvas>
     </>
