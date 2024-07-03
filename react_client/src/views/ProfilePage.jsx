@@ -1,8 +1,24 @@
-import { Container, Row, Col, Dropdown, DropdownButton } from "react-bootstrap";
+import { Container, Row, Col, Dropdown, DropdownButton, Image } from "react-bootstrap";
 import NavbarComponent from "../components/user/NavbarComponent";
 import { useRef, useState, useEffect } from "react";
 import { getNavbarHeight } from "../components/user/Components";
 
+const MyAccountComponent = () => {
+  const options = [
+    'Hồ Sơ',
+    'Địa Chỉ',
+    'Đổi Mật Khẩu',
+    'Đơn Hàng'
+  ]
+  return (
+    <Row>
+      <Image src="src/assets/icons/person.png" style={{ width: 50 }} />Tài Khoản Của Tôi
+      {options.map((option, index) => (
+        <Row Row key={index} > <Image src="src/assets/icons/person.png" style={{ width: 50 }} />{option}</Row>
+      ))}
+    </Row >
+  )
+}
 export default function ProfilePage() {
   const { navbarRef, navbarHeight } = getNavbarHeight();
 
@@ -14,13 +30,7 @@ export default function ProfilePage() {
         <Container>
           <Row>
             <Col xs={3} lg={4}>
-              <Row>
-                <DropdownButton id="dropdown-basic-button" title="Tài Khoản Của Tôi">
-                  <Dropdown.Item href="#/action-1">Hồ Sơ</Dropdown.Item>
-                  <Dropdown.Item href="#/action-2">Địa Chỉ</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Đổi Mật Khẩu</Dropdown.Item>
-                </DropdownButton>
-              </Row>
+              <MyAccountComponent />
             </Col>
             <Col>
               <Row>

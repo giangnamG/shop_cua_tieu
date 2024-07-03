@@ -1,5 +1,5 @@
 import config from '../config'
-import AllProductPage from '../components/user/AllProductPage'
+import AllProductPage from './AllProductPage'
 import OutStandingProduct from '../components/user/OutStandingProduct'
 import { Slider } from '../components/user/Components'
 import { Container } from 'react-bootstrap'

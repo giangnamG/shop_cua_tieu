@@ -4,8 +4,6 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 import config from "../../config";
 import Carousel from 'react-bootstrap/Carousel';
-import { useSelector } from 'react-redux'
-
 /**
   product = {
     id,title, description,price, image
@@ -29,14 +27,19 @@ const CardProduct = ({ product }) => {
   }
   const cardImageStyle = {
     width: "100%",
-    height: 180,
+    height: 200,
     borderRadius: 15
   }
+
+  const handleClicked = (productId) => {
+    window.location = '/product/' + encodeURIComponent(productId)
+  }
+
   return (
     <Card key={product.id} style={cardStyle}>
       <Card.Body style={cardBodyStyle}>
-        <Card.Img src={product.image} style={cardImageStyle}></Card.Img>
-        <Card.Text style={{ paddingTop: 5, marginBottom: 0 }}>
+        <Card.Img src={product.image} style={cardImageStyle} onClick={() => handleClicked(product.id)}></Card.Img>
+        <Card.Text style={{ paddingTop: 5, marginBottom: 0 }} onClick={() => handleClicked(product.id)}>
           {product.title}
         </Card.Text>
         <footer className="blockquote-footer" style={{ marginTop: 5, marginBottom: 0 }}>
@@ -62,7 +65,7 @@ const CardProduct = ({ product }) => {
           </HoverButtonIcon>
         </div>
       </Card.Body>
-    </Card>
+    </Card >
   )
 }
 
@@ -217,7 +220,7 @@ const Slider = ({ navbarHeight }) => {
             <p>Sample Text for Image One</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={2000}>
+        <Carousel.Item interval={4000}>
           <img
             className="d-block w-100"
             src="https://media.geeksforgeeks.org/wp-content/uploads/20210425122716/1-300x115.png"

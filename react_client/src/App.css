@@ -1,7 +1,7 @@
 #root {
-  width: 100vw; /* Sử dụng toàn bộ chiều rộng của màn hình */
+  width: 99vw; /* Sử dụng toàn bộ chiều rộng của màn hình */
   overflow-x: hidden; /* Ngăn cuộn ngang */
-  background-color: white;
+  background-color: whitesmoke;
 }
 /* navbar */
 .fixed-top {
@@ -56,3 +56,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #C71585; /* Màu của thanh kéo khi di chuột qua */
 }
+
